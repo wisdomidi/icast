@@ -1,15 +1,15 @@
-#Casting Agency Capstone
+# Casting Agency Capstone
 The Casting Agency API models a company that is responsible for creating movies and managing/assigning actors to those movies. This api is responsible for checking permissions and handling CRUD for an Actor and Movie model/
 
-###Getting Started
+### Getting Started
 Installing Dependencies
 Python 3.7
 Follow instructions to install the latest version of python for your platform in the python docs
 
-###Virtual Enviornment
+### Virtual Enviornment
 We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for your platform can be found in the python docs
 
-###PIP Dependencies
+### PIP Dependencies
 Once you have your virtual environment setup and running, install dependencies by naviging to the root directory of this project and running:
 
 > pip install -r requirements.txt
@@ -85,7 +85,7 @@ GET '/actors'
 Fetches a paginated list of actors.
 Request Arguments: offset: 1(default), limit: 30(default).
 Returns: list of actors ordered by id.
-
+```
 {
   'success': True,
   'actors': [
@@ -97,10 +97,12 @@ Returns: list of actors ordered by id.
     }
   ]
 }
+```
 GET '/movies'
 Fetches a paginated list of movies.
 Request Arguments: offset: 1(default), limit: 30(default).
 Returns: list of movies ordered by id.
+```
 {
   'success': True,
   'movies': [
@@ -111,10 +113,12 @@ Returns: list of movies ordered by id.
     }
   ]
 }
+```
 POST '/actors'
 Create a new actor.
 Request Arguments: { name: String, age: Integer, gender: String }.
 Returns: An object with success: True and the new actor inside an array.
+```
 {
   'success': True,
   'actors': [
@@ -126,10 +130,12 @@ Returns: An object with success: True and the new actor inside an array.
     }
   ]
 }
+```
 POST '/movies'
 Create a new movie.
 Request Arguments: { title: String, release_date: DateTime }.
 Returns: An object with success: True and the new movie inside an array.
+```
 {
   'success': True,
   'movies': [
@@ -140,10 +146,12 @@ Returns: An object with success: True and the new movie inside an array.
     }
   ]
 }
+```
 Patch '/actors/<actor_id>'
 Update an actor.
 Request Arguments: { name: String, age: Integer, gender: String }.
 Returns: An object with success: True and the updated actor inside an array.
+```
 {
   'success': True,
   'actors': [
@@ -155,10 +163,12 @@ Returns: An object with success: True and the updated actor inside an array.
     }
   ]
 }
+```
 Patch '/movies/<movie_id>'
 Update a movie.
 Request Arguments: { title: String, release_date: DateTime }.
 Returns: An object with success: True and the updated movie inside an array.
+```
 {
   'success': True,
   'movies': [
@@ -169,26 +179,32 @@ Returns: An object with success: True and the updated movie inside an array.
     }
   ]
 }
+```
 DELETE '/actors/<actor_id>'
 Removes an actor from the database.
 Request Parameters: question id slug.
 Returns: An object with success: True and the id of the deleted actor
+```
 {
   'success': True,
   'id': 1
 }
+```
 DELETE '/movies/<movie_id>'
 Removes a movie from the database.
 Request Parameters: question id slug.
 Returns: An object with success: True and the id of the deleted movie
+```
 {
   'success': True,
   'id': 1
 }
+```
 Testing
 Testing remote server using postman
 Import the postman collection ./casting agency.postman_collection.json.
 
+```
 This collection has 3 roles that have specific permissions detailed below.
 Roles
 Public
@@ -199,17 +215,13 @@ Casting Director
 get:actors, get:movies, post:actors, patch:actors, patch:movies, delete:actors
 Executive Producer (all permissions)
 get:actors, get:movies, post:actors, post:movies, patch:actors, patch:movies, delete:actors, delete:movies
+```
 Once imported, Run the collection and play around with the endpoints within folders public, assistant, director and producer.
 
 Running tests locally
 To run the tests from ./test_app.py, first make sure you have ran and executed the setup.sh file to set the enviorment.
+```
 
-After setting the enviorment start your local postgress server:
-
-pg_ctl -D /usr/local/var/postgres start
-Then run the follwing commands to run the tests:
-
-dropdb casting_test
 createdb casting_test
-psql casting_test < casting_test.psql
 python test_app.py
+```
