@@ -220,7 +220,7 @@ Once imported, Run the collection and play around with the endpoints within fold
 
 Running tests locally
 To run the tests from ./test_app.py, first make sure you have ran and executed the setup.sh file to set the enviorment.
-``` 1
+``` 112
 
 createdb casting_test
 
