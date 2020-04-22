@@ -1,26 +1,26 @@
-Casting Agency Capstone
+#Casting Agency Capstone
 The Casting Agency API models a company that is responsible for creating movies and managing/assigning actors to those movies. This api is responsible for checking permissions and handling CRUD for an Actor and Movie model/
 
-Getting Started
+###Getting Started
 Installing Dependencies
 Python 3.7
 Follow instructions to install the latest version of python for your platform in the python docs
 
-Virtual Enviornment
+###Virtual Enviornment
 We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for your platform can be found in the python docs
 
-PIP Dependencies
+###PIP Dependencies
 Once you have your virtual environment setup and running, install dependencies by naviging to the root directory of this project and running:
 
-pip install -r requirements.txt
+> pip install -r requirements.txt
 This will install all of the required packages we selected within the requirements.txt file.
 
 After installing the dependencies, execute the bash file setup.sh to set the user jwts, auth0 credentials and the remote database url by naviging to the root directory of this project and running:
-
+```
 source setup.sh
 Key Dependencies
 Flask is a lightweight backend microservices framework. Flask is required to handle requests and responses.
-
+```
 SQLAlchemy is the Python SQL toolkit and ORM we'll use handle the lightweight sqlite database. You'll primarily work in app.py and can reference models.py.
 
 Flask-CORS is the extension we'll use to handle cross origin requests from our frontend server.
@@ -30,11 +30,12 @@ jose JavaScript Object Signing and Encryption for JWTs. Useful for encoding, dec
 Running the server
 From within the root directory first ensure you are working using your created virtual environment.
 
-To run the server, execute:
-
+> To run the server, execute:
+```
 export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run
+```
 Setting the FLASK_ENV variable to development will detect file changes and restart the server automatically.
 
 Setting the FLASK_APP variable to flaskr directs flask to use the flaskr directory and the __init__.py file to find the application.
@@ -42,12 +43,13 @@ Setting the FLASK_APP variable to flaskr directs flask to use the flaskr directo
 API Reference
 Error Handling
 Errors are returned as JSON objects in the following format:
-
+```
 {
     "success": False, 
     "error": 404,
     "message": "Resource not found."
 }
+```
 The API will return three error types with multiple different error messages when requests fail:
 
 400: Bad Request
