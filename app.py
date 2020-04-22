@@ -10,11 +10,11 @@ from flask_migrate import Migrate
 #from models import setup_db, Actor, Movie, db
 from models import db, Actor, Movie
 
-#def setup_db(app, database_path=database_path):
-#    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
-#    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-#    db.app = app
-#    db.init_app(app)
+def setup_db(app, database_path=database_path):
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = app
+    db.init_app(app)
     #db.create_all()
 
 
@@ -221,7 +221,7 @@ def create_app(test_config=None):
 
     return app
 
-APP = create_app()
+#APP = create_app()
 
 if __name__ == '__main__':
     #APP.run(host='0.0.0.0', port=8080, debug=True)
