@@ -3,7 +3,6 @@ import sys
 from flask import Flask, request, abort, jsonify
 from flask_cors import CORS
 import logging
-from logging import Formatter, FileHandler
 from auth import AuthError, requires_auth
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
@@ -11,9 +10,12 @@ from flask_migrate import Migrate
 #from models import setup_db, Actor, Movie, db
 from models import db, Actor, Movie
 
-app = Flask(__name__)
-moment = Moment(app)
-app.config.from_object('config')
+def setup_db(app, database_path=database_path):
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+    db.app = app
+    db.init_app(app)
+    #db.create_all()
 
 
 def create_app(test_config=None):
