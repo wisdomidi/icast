@@ -3,7 +3,7 @@ from flask_migrate import Migrate, MigrateCommand
 from flask import Flask
 
 from flask import app
-from models import Actor, Movie, db
+from models import db, Actor, Movie
 
 print(app)
 
