@@ -2,11 +2,11 @@ from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from flask import Flask
 
-from icast import app
+from app import app
 from models import db, Actor, Movie
 
 #print(app)
-
+app = Flask(__name__)
 migrate = Migrate(app, db)
 manager = Manager(app)
 
