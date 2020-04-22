@@ -223,5 +223,6 @@ To run the tests from ./test_app.py, first make sure you have ran and executed t
 ``` 1
 
 createdb casting_test
+
 python test_app.py
 ```
