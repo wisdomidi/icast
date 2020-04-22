@@ -10,16 +10,15 @@ from flask_migrate import Migrate
 #from models import setup_db, Actor, Movie, db
 from models import db, Actor, Movie
 
-def setup_db(app, database_path=database_path):
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    db.app = app
-    db.init_app(app)
+#def setup_db(app, database_path=database_path):
+#    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+#    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+#    db.app = app
+#    db.init_app(app)
     #db.create_all()
 
 
 def create_app(test_config=None):
-
     app = Flask(__name__)
     setup_db(app)
     CORS(app)
