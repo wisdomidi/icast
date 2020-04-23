@@ -5,8 +5,9 @@ import os
 from datetime import datetime
 
 # database_path = os.environ['DATABASE_URL']
-
-database_path = 'postgres://ujpfkhwocykutn:2e3a7ecf456796cf946b1d2e71eb58cec6c127909b1fe4e803ce72da09bfcce0@ec2-54-147-209-121.compute-1.amazonaws.com:5432/de7h7cmbl03cua'
+#SQLALCHEMY_DATABASE_URI = "postgres://wisdomidi:Sososoweto2010@localhost:5432/castingdb"
+#database_path = 'postgres://ujpfkhwocykutn:2e3a7ecf456796cf946b1d2e71eb58cec6c127909b1fe4e803ce72da09bfcce0@ec2-54-147-209-121.compute-1.amazonaws.com:5432/de7h7cmbl03cua'
+database_path = "postgres://wisdomidi:Sososoweto2010@localhost:5432/castingdb"
 db = SQLAlchemy()
 
 

@@ -7,18 +7,18 @@ from auth import AuthError, requires_auth
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-#from models import setup_db, Actor, Movie, db
-from models import db, Actor, Movie
+from models import setup_db, Actor, Movie, db
+#from models import db, Actor, Movie
 
 
-database_path = 'postgres://ujpfkhwocykutn:2e3a7ecf456796cf946b1d2e71eb58cec6c127909b1fe4e803ce72da09bfcce0@ec2-54-147-209-121.compute-1.amazonaws.com:5432/de7h7cmbl03cua'
+#database_path = 'postgres://ujpfkhwocykutn:2e3a7ecf456796cf946b1d2e71eb58cec6c127909b1fe4e803ce72da09bfcce0@ec2-54-147-209-121.compute-1.amazonaws.com:5432/de7h7cmbl03cua'
 
-def setup_db(app, database_path=database_path):
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-    db.app = app
-    db.init_app(app)
-    #db.create_all()
+#def setup_db(app, database_path=database_path):
+#    app.config["SQLALCHEMY_DATABASE_URI"] = database_path
+#    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+#    db.app = app
+#    db.init_app(app)
+     #db.create_all()
 
 
 def create_app(test_config=None):

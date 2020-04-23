@@ -1,24 +1,32 @@
-# Casting Agency Capstone
+# Casting Agency Capstone Project for Udacity
+
 The Casting Agency API models a company that is responsible for creating movies and managing/assigning actors to those movies. This api is responsible for checking permissions and handling CRUD for an Actor and Movie model/
 
 ### Getting Started
+
 Installing Dependencies
 Python 3.7
 Follow instructions to install the latest version of python for your platform in the python docs
 
 ### Virtual Enviornment
+
 We recommend working within a virtual environment whenever using Python for projects. This keeps your dependencies for each project separate and organaized. Instructions for setting up a virual enviornment for your platform can be found in the python docs
 
 ### PIP Dependencies
+
 Once you have your virtual environment setup and running, install dependencies by naviging to the root directory of this project and running:
 
 > pip install -r requirements.txt
+
 This will install all of the required packages we selected within the requirements.txt file.
 
 After installing the dependencies, execute the bash file setup.sh to set the user jwts, auth0 credentials and the remote database url by naviging to the root directory of this project and running:
 ```
-source setup.sh
-Key Dependencies
+> source setup.sh
+
+
+### Key Dependencies
+
 Flask is a lightweight backend microservices framework. Flask is required to handle requests and responses.
 ```
 SQLAlchemy is the Python SQL toolkit and ORM we'll use handle the lightweight sqlite database. You'll primarily work in app.py and can reference models.py.
@@ -27,10 +35,12 @@ Flask-CORS is the extension we'll use to handle cross origin requests from our f
 
 jose JavaScript Object Signing and Encryption for JWTs. Useful for encoding, decoding, and verifying JWTS.
 
-Running the server
+### Running the server
+
 From within the root directory first ensure you are working using your created virtual environment.
 
 > To run the server, execute:
+
 ```
 export FLASK_APP=app.py
 export FLASK_ENV=development
@@ -41,6 +51,7 @@ Setting the FLASK_ENV variable to development will detect file changes and resta
 Setting the FLASK_APP variable to flaskr directs flask to use the flaskr directory and the __init__.py file to find the application.
 
 API Reference
+
 Error Handling
 Errors are returned as JSON objects in the following format:
 ```
@@ -51,7 +62,7 @@ Errors are returned as JSON objects in the following format:
 }
 ```
 The API will return three error types with multiple different error messages when requests fail:
-
+```
 400: Bad Request
 
 400: Permissions were not included in the JWT.
@@ -79,12 +90,12 @@ The API will return three error types with multiple different error messages whe
 403: Permission denied.
 
 404: Resource Not Found.
+```
 
-Endpoints
+### Endpoints
 GET '/actors'
-Fetches a paginated list of actors.
-Request Arguments: offset: 1(default), limit: 30(default).
-Returns: list of actors ordered by id.
+Fetches a list of actors.
+
 ```
 {
   'success': True,
@@ -99,9 +110,9 @@ Returns: list of actors ordered by id.
 }
 ```
 GET '/movies'
-Fetches a paginated list of movies.
-Request Arguments: offset: 1(default), limit: 30(default).
-Returns: list of movies ordered by id.
+Fetches a list of movies.
+
+
 ```
 {
   'success': True,
@@ -201,28 +212,45 @@ Returns: An object with success: True and the id of the deleted movie
 }
 ```
 Testing
-Testing remote server using postman
-Import the postman collection ./casting agency.postman_collection.json.
+
 
 ```
 This collection has 3 roles that have specific permissions detailed below.
-Roles
+
+### Roles
+
 Public
 No access
+
 Casting Assistant
 get:actors, get:movies
+
 Casting Director
 get:actors, get:movies, post:actors, patch:actors, patch:movies, delete:actors
+
 Executive Producer (all permissions)
 get:actors, get:movies, post:actors, post:movies, patch:actors, patch:movies, delete:actors, delete:movies
 ```
-Once imported, Run the collection and play around with the endpoints within folders public, assistant, director and producer.
 
-Running tests locally
-To run the tests from ./test_app.py, first make sure you have ran and executed the setup.sh file to set the enviorment.
-``` 112
 
+#### Running tests locally
+To run the tests 
+```
 createdb casting_test
 
 python test_app.py
 ```
+
+Tokens for each permission type to check auth0 roles
+
+EXECUTIVE_DIRECTOR_TOKEN = 
+
+'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1USTJRVEE1TVRZM00wVTVRa0k1TVRJd1JUQkZRVEJEUVRjd05URkVNRVE1UVVVeE1rVTBSQSJ9.eyJpc3MiOiJodHRwczovL3dpc2RvbWlkaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU5OTRjNzQ3Mjg0ZGIwYzhkNDkzYTg1IiwiYXVkIjoiaWNhc3QiLCJpYXQiOjE1ODc1OTk0MjcsImV4cCI6MTU4NzY4NTgyNywiYXpwIjoiU1Q2Nkl1bHZYM3ZDbnJMdEpneWd4OW1JS2tuRWtpd1EiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJkZWxldGU6bW92aWVzIiwiZ2V0OmFjdG9ycyIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.E1y4MSWiV86XT4KRhkbgpI8R4rluVEyEAWUW1_K75gNE2Oc5ClWH0WRaLp39Sisu1JNfay88Tal9LoOJEbI2j_unb2cUv8ceo36MI57WA93Z70nlA-fLq8jiMIqxNYY9db7X3S5QjSmphQoDYqagxRUx10dvih1c_CThrAhqeS01RCEVyT10XR_LjLYhKWbc8YRhPYeMyYPzakGZAJzWhgsPPLeYdj0vrW8qsXRThjh1SBxmZw7CsMEH3BsUcVGFXE5LmGD-3PRG4PYtNYwZa1JYZCD_QsIq1azfucYKNp1BVDZ_xu87rW4TAyPvpnE-kGKiEpma50XcveAe9k69Iw'
+
+CASTING_DIRECTOR_TOKEN = 
+
+'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1USTJRVEE1TVRZM00wVTVRa0k1TVRJd1JUQkZRVEJEUVRjd05URkVNRVE1UVVVeE1rVTBSQSJ9.eyJpc3MiOiJodHRwczovL3dpc2RvbWlkaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU5OTQzYmI5N2Q4NzAwYzkxODZiMDkxIiwiYXVkIjoiaWNhc3QiLCJpYXQiOjE1ODc1OTk2MzMsImV4cCI6MTU4NzY4NjAzMywiYXpwIjoiU1Q2Nkl1bHZYM3ZDbnJMdEpneWd4OW1JS2tuRWtpd1EiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTphY3RvcnMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIl19.QSoFuH0JfM1lDBECMIWzWMkdRgaayCFpZOh0QtMsiEo_xs_Xxu_YX1ignfbLqKaX8iwde0uxzXZSSKi6DC8z_oG-Kd1amyuxK0XDEKy1R2aLDhwCWZkTjhWBC8dWRZ62umS1hQoj2AdlIFbhhWzYvaPBiYhY8PlZKjK_FipN8Uqk1m2OLVumEUH54DBY_YeUiSD5tOqswOcoEzHH4CmFwBQjO02-tIdhVxr-aQN78rhEFJ69KB-mK8PKiZUpDcPVlTltX8bFbnV4uVqImLbuQepx4SAppBkg1DNLknCQuE-fXx0zejguWFCZRJDA5RO5sRY3CvO9-xqCe1m2CRWLYw'
+
+CASTING_ASSISTANT_TOKEN = 
+
+'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1USTJRVEE1TVRZM00wVTVRa0k1TVRJd1JUQkZRVEJEUVRjd05URkVNRVE1UVVVeE1rVTBSQSJ9.eyJpc3MiOiJodHRwczovL3dpc2RvbWlkaS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU5OTQ0OWY5N2Q4NzAwYzkxODZiMmVjIiwiYXVkIjoiaWNhc3QiLCJpYXQiOjE1ODc2MDAxMTYsImV4cCI6MTU4NzY4NjUxNiwiYXpwIjoiU1Q2Nkl1bHZYM3ZDbnJMdEpneWd4OW1JS2tuRWtpd1EiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphY3RvcnMiLCJnZXQ6bW92aWVzIl19.q6OXvs6141QgMkkE3UZmnjDfNo-nzNVQWO4Wy6sTHGSX3-Bg7DXwap1f1fxZE6I5HnSrgt_4y5QM0ijD0RLGqU2dIwOR6oheluE_Z0q8MMutLv-L590V_zGzFBqH45oaMc50_FxbQ-8n3NJ9qU55DnYvYeoCSWF9j_beNZFXVzrWFRLzvQTPEgpmrY-J0Z9QcAKxoqJN_XfrPb6f_gmlVV_zXw5dQ2Kd4VVK2onpghzaTnYkCQtpscdZLYIpeI34ufuCENZsKUijqEaxuEqipY9sC3-coHuQG0T91UHvRfZCBrmUbO9RrwWaTSYvcz13D3dwwiOnaGRGeVmneFG25A'
