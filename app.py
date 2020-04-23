@@ -25,7 +25,8 @@ from models import setup_db, Actor, Movie, db
 
 def create_app(test_config=None):
   
-    app = Flask(__name__)
+app = Flask(__name__)
+
     setup_db(app)
     CORS(app)
     migrate = Migrate(app, db) # this
