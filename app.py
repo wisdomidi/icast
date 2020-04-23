@@ -20,7 +20,7 @@ from models import setup_db, Actor, Movie, db
 #    db.init_app(app)
      #db.create_all()
 
-#app = Flask(__name__)
+app = create_app()
 
 
 def create_app(test_config=None):
