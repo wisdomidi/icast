@@ -29,8 +29,8 @@ def create_app(test_config=None):
     setup_db(app)
     CORS(app)
     migrate = Migrate(app, db) # this
-    moment = Moment(app)
-    app.config.from_object('config')
+    #moment = Moment(app)
+    #app.config.from_object('config')
 
 #    app = Flask(__name__)
 
