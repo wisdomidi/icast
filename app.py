@@ -20,19 +20,22 @@ from models import setup_db, Actor, Movie, db
 #    db.init_app(app)
      #db.create_all()
 
-app = Flask(__name__)
-setup_db(app)
-moment = Moment(app)
-app.config.from_object('config')
-db.init_app(app)
-setup_db(app)
+#app = Flask(__name__)
+#setup_db(app)
+#moment = Moment(app)
+#app.config.from_object('config')
+#db.init_app(app)
+#setup_db(app)
 
-#def create_app(test_config=None):
+def create_app(test_config=None):
   
-#    app = Flask(__name__)
-#    setup_db(app)
-#    CORS(app)
-#    migrate = Migrate(app, db) # this
+    app = Flask(__name__)
+    setup_db(app)
+    CORS(app)
+    migrate = Migrate(app, db) # this
+    moment = Moment(app)
+    app.config.from_object('config')
+    db.init_app(app)
 
 #    app = Flask(__name__)
 
