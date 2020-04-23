@@ -20,7 +20,7 @@ from models import setup_db, Actor, Movie, db
 #    db.init_app(app)
      #db.create_all()
 
-app = Flask(__name__)
+#app = Flask(__name__)
 
 
 def create_app(test_config=None):
@@ -28,11 +28,6 @@ def create_app(test_config=None):
     app = Flask(__name__)
     setup_db(app)
     CORS(app)
-    migrate = Migrate(app, db) # this
-    #moment = Moment(app)
-    #app.config.from_object('config')
-
-#    app = Flask(__name__)
 
 #   get actors 
     @app.route('/actors')
