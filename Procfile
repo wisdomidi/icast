@@ -1,1 +1,1 @@
-web: gunicorn --chdir icast app:app
+web: gunicorn app:app
