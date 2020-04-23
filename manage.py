@@ -5,7 +5,6 @@ from app import app
 from models import db, Actor, Movie
 #from models import setup_db, Actor, Movie, db
 
-app = Flask(__name__)
 
 migrate = Migrate(app, db)
 manager = Manager(app)
