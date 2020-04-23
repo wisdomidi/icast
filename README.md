@@ -241,6 +241,9 @@ createdb casting_test
 python test_app.py
 ```
 
+Code is live at https://icastu.herokuapp.com/
+
+
 Tokens for each permission type to check auth0 roles
 
 EXECUTIVE_DIRECTOR_TOKEN = 
