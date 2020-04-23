@@ -1,1 +1,1 @@
-web: gunicorn app:app.py -p 8080
+web: gunicorn create_app:app
